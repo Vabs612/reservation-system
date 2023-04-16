@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vaibhav.constant.RoleConstants;
 import com.vaibhav.jpa.RoleRepository;
+import com.vaibhav.jpa.UserRepository;
 import com.vaibhav.model.Role;
 import com.vaibhav.model.User;
-import com.vaibhav.security.jpa.UserRepository;
 
 import jakarta.validation.Valid;
 

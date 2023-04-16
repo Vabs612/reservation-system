@@ -13,6 +13,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+	String[] staticResources = { "/events/**", "/images/**", "/fonts/**", "/scripts/**", "/assets/**", "/forms/**" };
+
 	@Bean
 	UserDetailsService service() {
 		return new UserDetailsServiceImpl();
@@ -40,9 +42,9 @@ public class SecurityConfiguration {
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 				.authorizeHttpRequests((requests) -> requests.requestMatchers("/registration/**").permitAll()
-						.requestMatchers("/login/**").permitAll().requestMatchers("/user/**")
-						.hasAnyRole("USER", "ADMIN").requestMatchers("/admin/**").hasAnyRole("ADMIN").anyRequest()
-						.authenticated())
+						.requestMatchers(staticResources).permitAll().requestMatchers("/login/**").permitAll()
+						.requestMatchers("/").permitAll().requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+						.requestMatchers("/admin/**").hasAnyRole("ADMIN").anyRequest().authenticated())
 				.formLogin((form) -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/user/")
 						.permitAll().usernameParameter("name"))
 				.logout((logout) -> logout.permitAll()).exceptionHandling().accessDeniedPage("/access-denied");

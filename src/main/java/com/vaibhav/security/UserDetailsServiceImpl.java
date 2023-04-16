@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.vaibhav.jpa.UserRepository;
 import com.vaibhav.model.MyUserDetails;
 import com.vaibhav.model.User;
-import com.vaibhav.security.jpa.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

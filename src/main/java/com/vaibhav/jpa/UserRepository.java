@@ -1,4 +1,4 @@
-package com.vaibhav.security.jpa;
+package com.vaibhav.jpa;
 
 import org.springframework.data.repository.CrudRepository;
 
