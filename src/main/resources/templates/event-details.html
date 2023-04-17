@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="utf-8">
@@ -99,7 +99,9 @@
 			<div class="container">
 
 				<div class="d-flex justify-content-between align-items-center">
-					<h2>Event Details</h2>
+					<h2>
+						Event Details : <span th:text="${event.eventDetails[0].category}"></span>
+					</h2>
 					<ol>
 						<li><a href="index.html">Home</a></li>
 						<li>Event Details</li>
@@ -114,22 +116,14 @@
 		<section id="portfolio-details" class="portfolio-details">
 			<div class="container">
 
-				<div class="row gy-4">
+				<div class="row gy-4" th:each="eventDetail : ${event.eventDetails}">
 
 					<div class="col-lg-8">
 						<div class="portfolio-details-slider swiper">
 							<div class="swiper-wrapper align-items-center">
 
 								<div class="swiper-slide">
-									<img src="assets/img/portfolio/portfolio-1.jpg" alt="">
-								</div>
-
-								<div class="swiper-slide">
-									<img src="assets/img/portfolio/portfolio-2.jpg" alt="">
-								</div>
-
-								<div class="swiper-slide">
-									<img src="assets/img/portfolio/portfolio-3.jpg" alt="">
+									<img th:src="@{${'/events/' + eventDetail.photo}}" alt="">
 								</div>
 
 							</div>
@@ -139,12 +133,19 @@
 
 					<div class="col-lg-4">
 						<div class="portfolio-info">
-							<h3>ABC Venue Information</h3>
+							<h3>
+								Venue Name : <span th:text="${eventDetail.venue}"></span>
+							</h3>
 							<ul>
-								<li><strong>Category</strong>: Birthday</li>
-								<li><strong>Location</strong>: Rambaug</li>
-								<li><strong>Event Amount</strong>: 100000</li>
-								<li><strong>Book</strong>: <a href="#">www.example.com</a></li>
+
+								<li><strong>Category : </strong> <span
+									th:text="${eventDetail.category}"></span></li>
+								<li><strong>Location :</strong><span
+									th:text="${eventDetail.location}"></span></li>
+								<li><strong>Event Amount :</strong><span
+									th:text="${eventDetail.amount}"></span></li>
+								<li><strong>Book</strong>: <a
+									th:href="@{${'/book?id='+eventDetail.id}}"></a></li>
 							</ul>
 						</div>
 						<div class="portfolio-description">
