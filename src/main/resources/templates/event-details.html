@@ -145,12 +145,12 @@
 								<li><strong>Event Amount :</strong><span
 									th:text="${eventDetail.amount}"></span></li>
 								<li><strong>Book</strong>: <a
-									th:href="@{${'/book?id='+eventDetail.id}}"></a></li>
+									th:href="@{${'/book?id='+eventDetail.id}}">Book show</a></li>
 							</ul>
 						</div>
 						<div class="portfolio-description">
 							<h2>About this venue</h2>
-							<p></p>
+							<p th:text="${eventDetail.description}"></p>
 						</div>
 					</div>
 
