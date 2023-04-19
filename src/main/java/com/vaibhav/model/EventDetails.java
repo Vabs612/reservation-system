@@ -20,12 +20,15 @@ public class EventDetails {
 	private String photo;
 	private String venue;
 	private String description;
+	private long capacity;
 	@ManyToOne
 	@JoinColumn(name = "event_id", nullable = false)
 	private Event event;
 
+
+
 	public EventDetails(long id, String category, long amount, String location, String photo, String venue,
-			String description, Event event) {
+			String description, long capacity, Event event) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -34,7 +37,16 @@ public class EventDetails {
 		this.photo = photo;
 		this.venue = venue;
 		this.description = description;
+		this.capacity = capacity;
 		this.event = event;
+	}
+
+	public long getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(long capacity) {
+		this.capacity = capacity;
 	}
 
 	public String getVenue() {

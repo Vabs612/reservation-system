@@ -656,8 +656,10 @@ section {
   text-align: center;
   border: 1px solid #ebebeb;
   padding: 80px 20px;
+  padding-bottom:30px;
   transition: all ease-in-out 0.3s;
-  background: #fff;
+  background: #F5F5F5;
+  margin-bottom: 20px;
 }
 
 .services .icon-box .icon {
@@ -912,7 +914,7 @@ section {
 .portfolio-details .portfolio-info ul {
   list-style: none;
   padding: 0;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .portfolio-details .portfolio-info ul li+li {
