@@ -24,11 +24,10 @@ public class EventDetails {
 	@ManyToOne
 	@JoinColumn(name = "event_id", nullable = false)
 	private Event event;
-
-
+	private String eventDate;
 
 	public EventDetails(long id, String category, long amount, String location, String photo, String venue,
-			String description, long capacity, Event event) {
+			String description, long capacity, Event event, String eventDate) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -39,6 +38,7 @@ public class EventDetails {
 		this.description = description;
 		this.capacity = capacity;
 		this.event = event;
+		this.eventDate = eventDate;
 	}
 
 	public long getCapacity() {
@@ -118,10 +118,19 @@ public class EventDetails {
 		this.description = description;
 	}
 
+	public String getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(String eventDate) {
+		this.eventDate = eventDate;
+	}
+
 	@Override
 	public String toString() {
 		return "EventDetails [id=" + id + ", category=" + category + ", amount=" + amount + ", location=" + location
-				+ ", photo=" + photo + ", venue=" + venue + ", description=" + description + "]";
+				+ ", photo=" + photo + ", venue=" + venue + ", description=" + description + ", capacity=" + capacity
+				+ ",, eventDate=" + eventDate + "]";
 	}
 
 }
